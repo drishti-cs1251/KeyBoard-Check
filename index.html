@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keyboard Check</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #907bed;
+            color: #e1c5f9;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        h6 {
+            font-weight: bold;
+            font-size: 50px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        .project {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .color {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+        }
+
+        table {
+            width: 400px;
+            height: 200px;
+            text-align: center;
+            font-size: 40px;
+            border-collapse: collapse;
+            background-color: rgba(255, 255, 255, 0.2); 
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        table, th, td {
+            border: 1px solid #e6b4f5;
+            padding: 10px;
+        }
+
+        td {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h6>KeyBoard-Check Project</h6>
+    <br><br>
+    <p><i>It tells which key has been pressed from the keyboard using the "keydown" event.</i></p>
+
+    <div class="project">
+        <div id="insert">
+            <div class="key">Press some key to see the values...</div>
+        </div>
+    </div>
+
+    <script>
+        const insert = document.querySelector("#insert");
+        window.addEventListener("keydown", (e) => {
+            insert.innerHTML = `<div class="color">
+                <table>
+                    <tr>
+                        <td>Key</td> 
+                        <td>Code</td>
+                    </tr>
+                    <tr>
+                        <td>${e.key === " " ? "Space" : e.key}</td>
+                        <td>${e.code}</td>
+                    </tr>
+                </table>
+            </div>`;
+        });
+    </script>
+</body>
+</html>
